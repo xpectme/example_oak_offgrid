@@ -1,0 +1,15 @@
+{{#if nav}}
+<nav>
+  <ul>
+    {{#each nav as item}}
+    <li>
+      {{#if item.path == currentPath}}
+      <b>{{item.title}}</b>
+      {{else}}
+      <a href="{{item.path}}">{{item.title}}</a>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</nav>
+{{/if}}

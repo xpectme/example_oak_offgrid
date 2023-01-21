@@ -1,0 +1,18 @@
+<article>
+  <h2>{{title}}</h2>
+  <p>
+    This is a list of all the projects I've worked on. You can find the source code for each project on
+    <a target="_blank" href="https://github.com/xpectme">my GitHub Organization</a>.
+  </p>
+
+  <h3>Projects</h3>
+  <ul>
+    {{#each projects as project}}
+    <li>
+      <a target="_blank" href="{{#pathjoin 'https://github.com', project.slug}}">{{project.name}}</a>
+    </li>
+    {{else}}
+    <li>No projects found</li>
+    {{/each}}
+  </ul>
+</article>

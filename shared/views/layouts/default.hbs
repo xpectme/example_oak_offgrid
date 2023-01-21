@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <header>{{> header}}</header>
+  <main>
+    <!-- This is where the content will be injected -->
+    {{{content}}}
+  </main>
+  <footer>{{> footer}}</footer>
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org"></script>
+  <script>
+    /*
+    // initialize service worker from sw.js
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+    */
+  </script>
+</body>
+
+</html>
