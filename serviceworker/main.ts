@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import {
   hooks,
   Router,
@@ -38,5 +39,5 @@ const engine = new BartEngine({
 router.setViewEngine(engine);
 
 addEventListener("fetch", (event) => {
-  router.listen(event);
+  router.listen(event as any);
 });

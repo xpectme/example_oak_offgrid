@@ -1,5 +1,10 @@
 {
   "tasks": {
+    "bundle:css": "npm run bundle:css && npm run bundle:css:optimize",
+    "bundle:css:watch": "npm run bundle:css:all",
+    "bundle:sw": "cd serviceworker && deno bundle main.ts --unstable --config ../deno.jsonc ../assets/sw.js",
+    "bundle:sw:watch": "cd serviceworker && deno bundle main.ts --unstable --config ../deno.jsonc ../assets/sw.js --watch",
+    "server": "cd server && deno run --allow-net --allow-read --unstable --config ../deno.jsonc main.ts"
   },
   "compilerOptions": {
     "allowJs": true,

@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="container-fluid">
   <header>{{> header}}</header>
   <main>
     <!-- This is where the content will be injected -->
@@ -17,7 +18,6 @@
   <!-- HTMX -->
   <script src="https://unpkg.com/htmx.org"></script>
   <script>
-    /*
     // initialize service worker from sw.js
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -30,7 +30,6 @@
           });
       });
     }
-    */
   </script>
 </body>
 

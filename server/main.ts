@@ -1,22 +1,23 @@
 import { Application } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import oakHtmxMiddleware from "https://deno.land/x/oak_htmx@v1.0.3/main.ts";
 import { Bart, bartEngine } from "https://deno.land/x/die_bart@v1.0.10/main.ts";
-import {
-  oakAdapter,
-  viewEngine,
-} from "https://deno.land/x/view_engine@v10.6.0/mod.ts";
-
+import { viewEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts";
+import staticFiles from "https://deno.land/x/static_files@1.1.6/mod.ts";
 import router from "./routes/index.ts";
 import * as helpers from "../shared/helpers.ts";
+import { engineAdapter } from "./lib/engineAdapter.ts";
 
 const app = new Application();
 const bart = new Bart();
 
 bart.registerHelper("pathjoin", helpers.pathJoinHelper);
 
+app.use(staticFiles("../shared"));
+app.use(staticFiles("../assets"));
+
 // add template engine
 app.use(viewEngine(
-  oakAdapter,
+  engineAdapter,
   bartEngine(bart, {
     layout: "default.hbs",
     layoutPath: "../shared/views/layouts",
@@ -25,6 +26,10 @@ app.use(viewEngine(
   }),
   {
     viewRoot: "../shared/views",
+    extName: ".hbs",
+    layout: "default.hbs",
+    layoutPath: "../shared/views/layouts",
+    partialPath: "../shared/views/partials",
   },
 ));
 

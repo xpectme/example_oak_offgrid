@@ -1,0 +1,32 @@
+{
+  "name": "example_oak_offgrid",
+  "version": "1.0.0",
+  "description": "Example application for Offgrid Service Worker",
+  "main": "index.js",
+  "scripts": {
+    "bundle:css": "sass --style=compressed public/scss/main.scss:public/style.css",
+    "bundle:css:watch": "sass --watch public/scss/main.scss:public/style.css",
+    "bundle:css:optimize": "postcss public/style.css --use autoprefixer --use cssnano --output assets/style.css && purgecss --content \"**/*.html\" --css public/style.css --output assets/style.css",
+    "bundle:css:optimize:watch": "postcss public/style.css --use autoprefixer --use cssnano --output assets/style.css --watch && purgecss --content \"**/*.html\" --css public/style.css --output assets/style.css --watch",
+    "bundle:css:all": "npm-run-all --parallel bundle:css:watch bundle:css:optimize:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpectme/example_oak_offgrid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xpectme/example_oak_offgrid/issues"
+  },
+  "homepage": "https://github.com/xpectme/example_oak_offgrid#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "purgecss": "^5.0.0",
+    "sass": "^1.57.1"
+  }
+}

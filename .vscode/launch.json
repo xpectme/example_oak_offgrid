@@ -6,11 +6,11 @@
   "configurations": [
     {
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch Server",
       "type": "node",
       "program": "main.ts",
       "cwd": "${workspaceFolder}/server",
-      "runtimeExecutable": "/Users/fox/.deno/bin/deno",
+      "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
         "--unstable",
@@ -20,6 +20,22 @@
         "--allow-all"
       ],
       "attachSimplePort": 9229
+    },
+    {
+      // bundle serviceworker/main.ts into assets/sw.js
+      "request": "launch",
+      "name": "Build ServiceWorker",
+      "type": "node",
+      "program": "main.ts",
+      "cwd": "${workspaceFolder}/serviceworker",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--unstable",
+        "--config",
+        "../deno.jsonc",
+        "--allow-all"
+      ]
     }
   ]
 }
