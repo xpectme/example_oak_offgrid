@@ -26,6 +26,21 @@ router.hooks.add(hooks.onlineState({
 // enable htmx server hook
 router.hooks.add(htmxHook());
 
+// router.get("/", async (ctx) => {
+//   console.log("ctx.state", ctx.state);
+
+//   const data = {
+//     ...ctx.state.data,
+//     title: "Offline First",
+//   };
+
+//   if (ctx.state.isHTMX) {
+//     await ctx.partial("home", data);
+//   } else {
+//     await ctx.view("home", data);
+//   }
+// }, { offline: "only" });
+
 const engine = new BartEngine({
   // this is a service worker, so keep in mind it's relative to the
   // URL and not the filesystem.
