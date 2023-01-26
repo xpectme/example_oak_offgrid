@@ -1,6 +1,6 @@
 {{#if nav}}
 <nav>
-  <ul>
+  <ul hx-boost="true" hx-target="main">
     {{#each nav as item}}
     <li>
       {{#if item.path == currentPath}}
