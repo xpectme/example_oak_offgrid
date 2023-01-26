@@ -68,9 +68,6 @@ function createBodyHandler(
   config: ViewConfig = <ViewConfig> {},
 ) {
   return async () => {
-    // console.log("config", config);
-    // console.log("filename", filename);
-    // console.log("data", data);
     return renderEngine(
       await getTemplate(
         config.viewRoot ?? "./",
@@ -93,6 +90,18 @@ export const engineAdapter: Adapter = (
     if (!ctx.app.viewConfig) {
       ctx.app.viewConfig = { ...config };
     }
+
+    ctx.render = (
+      filename: string,
+      data: Record<string, unknown> = {},
+      options: ViewEngineOptions = <ViewEngineOptions> {},
+    ) => {
+      if (ctx.state.isHTMX) {
+        return ctx.partial(filename, data);
+      } else {
+        return ctx.view(filename, data, options);
+      }
+    };
 
     ctx.view = (
       filename: string,
